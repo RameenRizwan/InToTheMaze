@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class wintrigger : MonoBehaviour
 {
+    private int scenenum;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,6 +22,16 @@ public class wintrigger : MonoBehaviour
 
         print("Trigger happened");
 
+
+
+        scenenum = SceneManager.GetActiveScene().buildIndex;
+        print("The scene number is: " + scenenum);
+        print("************************************");
+
+
+        
+
+        PlayerPrefs.SetInt("SceneNumber", scenenum);
         SceneManager.LoadScene("Win");
 
     }
